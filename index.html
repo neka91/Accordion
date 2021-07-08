@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Accordion</title>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .title {
+            border: 1px solid yellow;
+            color: blanchedalmond;
+            text-shadow: 1px 1px 1px yellow;
+            font-size: 1.5em;
+            padding: 15px;
+        }
+
+        .content {
+            display: none;
+            margin: 10px;
+            padding: 10px;
+            color: blanchedalmond;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .content img {
+            border: 1px solid blue;
+            width: 550px;
+            height: 350px;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title">First picture</div>
+    <div class="content">Ukraine is a beautiful country!
+        <img src="ukrainePic1.jpeg" alt="Picture of Ukraine">
+    </div>
+    <div class="title">Second picture</div>
+    <div class="content">Ukraine is a beautiful country!
+        <img src="ukrainePic2.jpeg" alt="Picture of Ukraine">
+    </div>
+    <div class="title">Third picture</div>
+    <div class="content">Ukraine is a beautiful country!
+        <img src="ukrainePic3.jpeg" alt="Picture of Ukraine">
+    </div>
+    <div class="title">Fourth picture</div>
+    <div class="content">Ukraine is a beautiful country!
+        <img src="ukrainePic4.jpeg" alt="Picture of Ukraine">
+    </div>
+    <div class="title">Fifth picture</div>
+    <div class="content">Ukraine is a beautiful country!
+        <img src="ukrainePic5.jpeg" alt="Picture of Ukraine">
+    </div>
+
+    <script>
+        let accordionTitle = document.querySelectorAll(".title");
+        let accordionContent = document.querySelectorAll(".content");
+
+        for (let i = 0; i < accordionTitle.length; i++) {
+            accordionTitle[i].onclick = function () {
+                closeContent(this.nextElementSibling);
+                this.nextElementSibling.classList.toggle("active");
+            }
+        }
+
+        function closeContent(t) {
+            for (let i = 0; i < accordionContent.length; i++) {
+                if (t != accordionContent[i]) {
+                    accordionContent[i].classList.remove("active");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
